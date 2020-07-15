@@ -45,10 +45,31 @@ func intersect(nums1 []int, nums2 []int) []int {
 	return ans
 }
 
+func intersect2(nums1 []int, nums2 []int) []int {
+	ret := make([]int, 0)
+	if len(nums1) > len(nums2) {
+		nums1, nums2 = nums2, nums1
+	}
+	count, dict := 0, make(map[int]int, len(nums1))
+	for _, v := range nums1 {
+		dict[v]++
+		count++
+	}
+
+	for _, v := range nums2 {
+		if dict[v] > 0 && count > 0 {
+			ret = append(ret, v)
+			dict[v]--
+			count--
+		}
+	}
+	return ret
+}
+
 func main() {
 	nums1 := []int{1, 2, 3, 4, 5}
 	nums2 := []int{1, 2, 3, 4}
-	ans := intersect(nums1, nums2)
+	ans := intersect2(nums1, nums2)
 	for _, v := range ans {
 		print(v)
 	}
