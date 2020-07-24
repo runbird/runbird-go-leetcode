@@ -27,22 +27,19 @@ package main
 //
 //作者：LeetCode
 //链接：https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/solution/jiang-you-xu-shu-zu-zhuan-huan-wei-er-cha-sou-s-15/
-//来源：力扣（LeetCode）
+//来源：力扣（LeetCode） 108
 //著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 func sortedArrayToBST(nums []int) *TreeNode {
-	ret := &TreeNode{}
-
-	if nums == nil {
-		return ret
+	length := len(nums)
+	if length < 1 {
+		return nil
 	}
 
-	for i := 0; i < len(nums); i++ {
-		curVal := nums[i]
-		ret.Val = curVal
-
-	}
-
-	return ret
+	mid := length / 2
+	left := nums[:mid]
+	right := nums[mid+1:]
+	node := &TreeNode{nums[mid], sortedArrayToBST(left), sortedArrayToBST(right)}
+	return node
 }
 
 func main() {
