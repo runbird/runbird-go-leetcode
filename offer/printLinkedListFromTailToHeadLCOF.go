@@ -18,7 +18,7 @@ package offer
 
 func reversePrint(head *ListNode) []int {
 	cur := head
-	stack := []*ListNode{}
+	var stack []*ListNode
 	for cur != nil {
 		stack = append(stack, cur)
 		cur = cur.Next
