@@ -1,4 +1,4 @@
-package dfs
+package main
 
 //130. 被围绕的区域
 //给定一个二维的矩阵，包含 'X' 和 'O'（字母 O）。
