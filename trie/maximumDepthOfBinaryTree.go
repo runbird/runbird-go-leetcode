@@ -1,4 +1,4 @@
-package main
+package trie
 
 //给定一个二叉树，找出其最大深度。
 //
@@ -31,7 +31,7 @@ func maxDepth(root *TreeNode) int {
 	}
 }
 
-type Node struct {
+type node struct {
 	val   *TreeNode
 	depth int
 }
@@ -43,17 +43,17 @@ func maxDepth2(root *TreeNode) int {
 
 	}
 	num := 0
-	var queue []*Node
-	queue = append(queue, &Node{root, 1})
+	var queue []*node
+	queue = append(queue, &node{root, 1})
 	for len(queue) != 0 {
 		cur := queue[0]
 		queue = queue[1:]
 		num = max(num, cur.depth)
 		if cur.val.Left != nil {
-			queue = append(queue, &Node{cur.val.Left, cur.depth + 1})
+			queue = append(queue, &node{cur.val.Left, cur.depth + 1})
 		}
 		if cur.val.Right != nil {
-			queue = append(queue, &Node{cur.val.Right, cur.depth + 1})
+			queue = append(queue, &node{cur.val.Right, cur.depth + 1})
 		}
 	}
 	return num
