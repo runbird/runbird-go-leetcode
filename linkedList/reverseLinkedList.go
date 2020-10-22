@@ -1,4 +1,4 @@
-package main
+package linkedList
 
 //206. 反转链表
 //反转一个单链表。
@@ -19,4 +19,16 @@ func reverseList(head *ListNode) *ListNode {
 	head.Next.Next = head
 	head.Next = nil
 	return cur
+}
+
+//反转链表
+func reverseList2(head *ListNode) *ListNode {
+	var pre *ListNode
+	for head != nil {
+		next := head.Next
+		head.Next = pre
+		pre = head
+		head = next
+	}
+	return pre
 }

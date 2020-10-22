@@ -1,4 +1,4 @@
-package main
+package string
 
 //567. 字符串的排列
 //给定两个字符串 s1 和 s2，写一个函数来判断 s2 是否包含 s1 的排列。
