@@ -29,6 +29,7 @@ func partitionLabels(S string) []int {
 	}
 	start, end, ans := 0, 0, []int{}
 	for i := 0; i < len(S); i++ {
+		//	end = int(math.Max(float64(end), float64((dict[S[i]-'a']))))
 		end = Max(end, dict[S[i]-'a'])
 		if end == i {
 			ans = append(ans, end-start+1)
